@@ -1,0 +1,29 @@
+import { useState } from 'react';
+import './Counter.css';
+
+const Counter = () => {
+  const [theme, setTheme] = useState('light');
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
+  }
+
+  return (
+    <div className={`state ${theme}`}>
+      <h1>UseState Component</h1>
+      {/* <button onClick={() => setTheme('dark')}>Dark</button>
+      <button onClick={() => setTheme('light')}>Light</button> */}
+      <button onClick={handleClick}>Toggle Theme</button>
+      <h2>{count}</h2>
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>
+        Increment
+      </button>
+      <button onClick={() => setCount(prevCount => prevCount - 1)}>
+        Decrement
+      </button>
+    </div>
+  );
+};
+
+export default Counter;
